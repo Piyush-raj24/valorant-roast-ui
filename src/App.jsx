@@ -25,7 +25,9 @@ export default function App() {
 
     try {
       const response = await fetch(
-        `http://localhost:8080/api/roast/${region}/${encodeURIComponent(name.trim())}/${encodeURIComponent(tag.trim())}`
+        const response = await fetch(
+  `https://valorant-roast-api.onrender.com/api/roast/${region}/${encodeURIComponent(name.trim())}/${encodeURIComponent(tag.trim())}`
+);
       );
       
       const data = await response.json(); 
