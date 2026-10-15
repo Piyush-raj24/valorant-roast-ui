@@ -1,36 +1,158 @@
-/* App Container */
-.app-container {
-  min-height: 100vh;
-  min-height: 100dvh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: clamp(16px, 4vw, 40px) clamp(12px, 3vw, 24px);
-  width: 100%;
-  max-width: 960px;
-  margin: 0 auto;
-  position: relative;
+/* ======================================================== */
+/* VALORANT IN-GAME UI DESIGN SYSTEM                       */
+/* Authentic in-game client HUD, Career match report, SFX   */
+/* ======================================================== */
+
+:root {
+  --val-red: #ff4655;
+  --val-red-hover: #ff5e6c;
+  --val-red-glow: rgba(255, 70, 85, 0.5);
+  --val-dark: #0f1923;
+  --val-darker: #0b1117;
+  --val-surface: #141f29;
+  --val-border: #23313d;
+  --val-border-bright: #394d5e;
+  --val-white: #ece8e1;
+  --val-gray: #8b978f;
+  --val-muted: #536471;
+  --val-green: #00e676;
+  --val-cyan: #00f0ff;
+  --val-gold: #ffb703;
+  --val-purple: #c084fc;
 }
 
-/* Audio Switcher */
-.audio-toggle-btn {
-  position: absolute;
-  top: clamp(12px, 3vw, 24px);
-  right: clamp(12px, 3vw, 24px);
-  background: rgba(22, 34, 44, 0.85);
-  border: 1px solid var(--val-panel-border);
-  color: var(--val-white);
-  padding: 6px 12px;
-  border-radius: 4px;
-  font-family: var(--font-hud);
-  font-size: 0.85rem;
-  letter-spacing: 1px;
-  cursor: pointer;
+/* Authentic In-Game Top Navigation Bar */
+.val-top-nav {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 18px;
+  background: rgba(11, 17, 23, 0.95);
+  border-bottom: 1px solid var(--val-border);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  backdrop-filter: blur(8px);
+}
+
+.val-nav-left {
   display: flex;
   align-items: center;
-  gap: 6px;
+  gap: 24px;
+}
+
+.val-riot-logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: 2px;
+}
+
+.val-riot-symbol {
+  width: 24px;
+  height: 24px;
+  background: var(--val-red);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  clip-path: polygon(0 0, 100% 0, 75% 100%, 0 100%);
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: 1.2rem;
+  color: #fff;
+}
+
+.val-nav-links {
+  display: flex;
+  gap: 16px;
+}
+
+.val-nav-link {
+  font-family: var(--font-hud);
+  font-size: 0.9rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--val-gray);
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 6px 10px;
+  position: relative;
   transition: all 0.2s;
-  z-index: 50;
+}
+
+.val-nav-link:hover,
+.val-nav-link.active {
+  color: #fff;
+}
+
+.val-nav-link.active::after {
+  content: '';
+  position: absolute;
+  bottom: -11px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: var(--val-red);
+  box-shadow: 0 0 8px var(--val-red);
+}
+
+.val-nav-right {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.val-currency-counter {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: rgba(0, 0, 0, 0.4);
+  padding: 4px 12px;
+  border: 1px solid var(--val-border);
+  border-radius: 2px;
+  font-family: var(--font-hud);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.val-currency-item {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  color: var(--val-white);
+}
+
+.val-currency-item span {
+  color: var(--val-gold);
+}
+
+.val-ping-badge {
+  font-family: var(--font-hud);
+  font-size: 0.75rem;
+  color: var(--val-green);
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.audio-toggle-btn {
+  background: rgba(22, 34, 44, 0.9);
+  border: 1px solid var(--val-border);
+  color: var(--val-white);
+  padding: 4px 10px;
+  border-radius: 2px;
+  font-family: var(--font-hud);
+  font-size: 0.8rem;
+  cursor: pointer;
+  transition: all 0.2s;
 }
 
 .audio-toggle-btn:hover {
@@ -38,7 +160,19 @@
   color: #fff;
 }
 
-/* Header */
+/* App Main Layout */
+.app-container {
+  min-height: calc(100vh - 50px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: clamp(16px, 3vw, 36px) clamp(12px, 2.5vw, 24px);
+  width: 100%;
+  max-width: 1020px;
+  margin: 0 auto;
+}
+
+/* Header Section */
 .app-header {
   text-align: center;
   margin-bottom: 24px;
@@ -49,9 +183,9 @@
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  padding: 4px 12px;
+  padding: 4px 14px;
   background: rgba(255, 70, 85, 0.12);
-  border: 1px solid rgba(255, 70, 85, 0.3);
+  border: 1px solid rgba(255, 70, 85, 0.35);
   color: var(--val-red);
   font-family: var(--font-hud);
   font-size: 0.85rem;
@@ -59,7 +193,7 @@
   letter-spacing: 2.5px;
   text-transform: uppercase;
   margin-bottom: 8px;
-  border-radius: 2px;
+  clip-path: polygon(0 0, calc(100% - 8px) 0, 100% 8px, 100% 100%, 8px 100%, 0 calc(100% - 8px));
 }
 
 .system-dot {
@@ -73,89 +207,106 @@
 
 .main-title {
   font-family: var(--font-display);
-  font-size: clamp(2.6rem, 7vw, 4.5rem);
+  font-size: clamp(2.8rem, 7vw, 4.8rem);
   line-height: 0.95;
-  letter-spacing: 3px;
+  letter-spacing: 4px;
   color: #fff;
   text-transform: uppercase;
-  margin-bottom: 8px;
+  margin-bottom: 6px;
 }
 
 .main-title span {
   color: var(--val-red);
-  text-shadow: 0 0 20px rgba(255, 70, 85, 0.5);
+  text-shadow: 0 0 25px rgba(255, 70, 85, 0.6);
 }
 
 .main-subtitle {
   color: var(--val-gray);
-  font-size: clamp(0.9rem, 2.2vw, 1.05rem);
-  max-width: 580px;
+  font-size: clamp(0.88rem, 2vw, 1.05rem);
+  max-width: 620px;
   margin: 0 auto;
-  line-height: 1.4;
+  line-height: 1.45;
+  font-family: var(--font-hud);
+  letter-spacing: 1px;
 }
 
 /* Mode Switcher Tabs */
 .mode-tabs {
   display: flex;
-  gap: 8px;
+  gap: 12px;
   margin-bottom: 20px;
-  background: rgba(15, 25, 35, 0.8);
-  padding: 4px;
-  border-radius: 6px;
-  border: 1px solid #283945;
 }
 
 .mode-tab {
-  padding: 8px 18px;
-  background: transparent;
-  border: none;
+  padding: 10px 24px;
+  background: var(--val-surface);
+  border: 1px solid var(--val-border);
   color: var(--val-gray);
   font-family: var(--font-hud);
-  font-size: 0.95rem;
+  font-size: 1rem;
   font-weight: 700;
-  letter-spacing: 1.5px;
-  border-radius: 4px;
+  letter-spacing: 2px;
   cursor: pointer;
   transition: all 0.2s;
+  clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 10px 100%, 0 calc(100% - 10px));
+}
+
+.mode-tab:hover {
+  border-color: var(--val-border-bright);
+  color: #fff;
 }
 
 .mode-tab.active {
   background: var(--val-red);
+  border-color: var(--val-red);
   color: #fff;
-  box-shadow: 0 0 14px rgba(255, 70, 85, 0.4);
+  box-shadow: 0 0 20px rgba(255, 70, 85, 0.45);
 }
 
-/* Search Card */
+/* Matchmaking Lobby Panel (Search Form) */
 .search-card {
   width: 100%;
-  max-width: 680px;
-  background: var(--val-panel);
-  border: 1px solid var(--val-panel-border);
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.45);
-  padding: clamp(14px, 3vw, 22px);
-  border-radius: 6px;
+  max-width: 720px;
+  background: var(--val-surface);
+  border: 1px solid var(--val-border);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.55);
+  padding: clamp(16px, 3.5vw, 24px);
   margin-bottom: 24px;
+  position: relative;
+  clip-path: polygon(0 0, calc(100% - 14px) 0, 100% 14px, 100% 100%, 14px 100%, 0 calc(100% - 14px));
+}
+
+.search-card::before {
+  content: '// LOBBY READY';
+  position: absolute;
+  top: 6px;
+  right: 12px;
+  font-family: var(--font-hud);
+  font-size: 0.68rem;
+  letter-spacing: 2px;
+  color: var(--val-muted);
 }
 
 .search-form {
   display: flex;
-  gap: 10px;
+  gap: 12px;
   flex-wrap: wrap;
 }
 
 .region-select {
   flex: 0 0 auto;
-  min-width: 130px;
-  background: var(--val-dark);
+  min-width: 170px;
+  background: var(--val-darker);
   color: var(--val-white);
-  border: 1px solid #364958;
+  border: 1px solid var(--val-border-bright);
   padding: 12px 14px;
   font-family: var(--font-hud);
-  font-size: 1rem;
-  font-weight: 600;
-  border-radius: 4px;
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 1px;
   cursor: pointer;
   outline: none;
+  transition: all 0.2s;
 }
 
 .region-select:focus {
@@ -163,52 +314,58 @@
 }
 
 .riot-input-wrapper {
-  flex: 1 1 220px;
+  flex: 1 1 240px;
+  position: relative;
 }
 
 .riot-input {
   width: 100%;
-  background: var(--val-dark);
+  background: var(--val-darker);
   color: #fff;
-  border: 1px solid #364958;
+  border: 1px solid var(--val-border-bright);
   padding: 12px 16px;
   font-family: var(--font-hud);
-  font-size: 1.05rem;
-  font-weight: 600;
-  letter-spacing: 0.5px;
-  border-radius: 4px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  letter-spacing: 1px;
   outline: none;
   transition: all 0.2s;
 }
 
 .riot-input:focus {
   border-color: var(--val-red);
-  box-shadow: 0 0 12px rgba(255, 70, 85, 0.25);
+  box-shadow: 0 0 16px rgba(255, 70, 85, 0.3);
 }
 
 .riot-input::placeholder {
   color: var(--val-muted);
+  font-weight: 500;
 }
 
+/* Iconic Valorant In-Game "START" Button */
 .submit-btn {
   flex: 0 0 auto;
-  min-width: 140px;
+  min-width: 160px;
   background: var(--val-red);
   color: #fff;
   border: none;
-  padding: 12px 22px;
+  padding: 12px 24px;
   font-family: var(--font-display);
-  font-size: 1.35rem;
-  letter-spacing: 2px;
+  font-size: 1.5rem;
+  letter-spacing: 2.5px;
   cursor: pointer;
-  border-radius: 4px;
   transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  clip-path: polygon(0 0, calc(100% - 12px) 0, 100% 12px, 100% 100%, 12px 100%, 0 calc(100% - 12px));
 }
 
 .submit-btn:hover:not(:disabled) {
   background: var(--val-red-hover);
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px var(--val-red-glow);
+  box-shadow: 0 6px 25px var(--val-red-glow);
 }
 
 .submit-btn:disabled {
@@ -216,20 +373,19 @@
   cursor: not-allowed;
 }
 
-/* Duo Form */
+/* Duo Mode Form */
 .duo-inputs {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 12px;
+  gap: 14px;
   width: 100%;
-  margin-bottom: 12px;
+  margin-bottom: 14px;
 }
 
 .duo-player-box {
-  background: rgba(13, 21, 28, 0.6);
-  border: 1px solid #283946;
-  padding: 12px;
-  border-radius: 4px;
+  background: rgba(11, 17, 23, 0.7);
+  border: 1px solid var(--val-border);
+  padding: 12px 14px;
 }
 
 .duo-box-label {
@@ -243,28 +399,29 @@
   display: block;
 }
 
-/* Preset & Avatar upload row */
+/* Presets & Custom PFP Tool Row */
 .form-footer-tools {
   display: flex;
   justify-content: space-between;
   align-items: center;
   gap: 12px;
   margin-top: 14px;
+  padding-top: 12px;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
   flex-wrap: wrap;
 }
 
 .presets-container {
   display: flex;
   align-items: center;
-  gap: 8px;
-  flex-wrap: wrap;
+  gap: 10px;
 }
 
 .presets-label {
-  font-size: 0.8rem;
+  font-size: 0.78rem;
   color: var(--val-muted);
   font-family: var(--font-hud);
-  letter-spacing: 1px;
+  letter-spacing: 1.5px;
   text-transform: uppercase;
 }
 
@@ -272,21 +429,22 @@
   background: rgba(255, 70, 85, 0.15);
   border: 1px solid var(--val-red);
   color: #fff;
-  padding: 4px 12px;
+  padding: 5px 14px;
   font-family: var(--font-hud);
   font-size: 0.85rem;
   font-weight: 700;
-  border-radius: 3px;
+  letter-spacing: 1px;
   cursor: pointer;
   transition: all 0.2s;
+  clip-path: polygon(0 0, calc(100% - 6px) 0, 100% 6px, 100% 100%, 6px 100%, 0 calc(100% - 6px));
 }
 
 .preset-chip:hover {
   background: var(--val-red);
   transform: translateY(-1px);
+  box-shadow: 0 4px 14px rgba(255, 70, 85, 0.4);
 }
 
-/* Custom Avatar / PFP Upload */
 .avatar-upload-area {
   display: flex;
   align-items: center;
@@ -294,18 +452,14 @@
 }
 
 .upload-pfp-btn {
-  background: rgba(255, 255, 255, 0.06);
-  border: 1px dashed #415566;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px dashed var(--val-border-bright);
   color: var(--val-white);
-  padding: 5px 10px;
+  padding: 5px 12px;
   font-family: var(--font-hud);
-  font-size: 0.8rem;
+  font-size: 0.82rem;
   letter-spacing: 1px;
-  border-radius: 4px;
   cursor: pointer;
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
   transition: all 0.2s;
 }
 
@@ -320,9 +474,8 @@
   gap: 6px;
   background: rgba(0, 240, 255, 0.1);
   border: 1px solid var(--val-cyan);
-  padding: 2px 8px 2px 4px;
-  border-radius: 20px;
-  font-size: 0.75rem;
+  padding: 3px 10px 3px 6px;
+  font-size: 0.78rem;
   color: var(--val-cyan);
   font-family: var(--font-hud);
 }
@@ -340,16 +493,14 @@
   color: var(--val-red);
   cursor: pointer;
   font-weight: bold;
-  font-size: 0.85rem;
 }
 
-/* Cold Start Banner */
+/* Cold Start & Error Banners */
 .cold-start-banner {
   background: rgba(0, 240, 255, 0.08);
   border: 1px solid rgba(0, 240, 255, 0.3);
   color: var(--val-cyan);
   padding: 10px 14px;
-  border-radius: 4px;
   font-size: 0.88rem;
   display: flex;
   align-items: center;
@@ -357,15 +508,13 @@
   margin-top: 14px;
 }
 
-/* Error Banner */
 .error-banner {
   width: 100%;
-  max-width: 680px;
+  max-width: 720px;
   background: rgba(255, 70, 85, 0.12);
   border: 1px solid var(--val-red);
   color: #ff9da6;
   padding: 12px 16px;
-  border-radius: 4px;
   margin-bottom: 20px;
   font-size: 0.95rem;
   display: flex;
@@ -373,32 +522,33 @@
   gap: 10px;
 }
 
-/* ========================================= */
-/* TACTICAL PERFORMANCE CARD (WITH IMAGES)   */
-/* ========================================= */
+/* ======================================================== */
+/* AUTHENTIC IN-GAME "CAREER MATCH REPORT" CARD             */
+/* ======================================================== */
+
 .card-wrapper {
   width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 18px;
-  animation: slideUpFade 0.45s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  gap: 20px;
+  animation: slideUpFade 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
 .roast-card {
   width: 100%;
-  max-width: 540px;
-  background: #111b24;
+  max-width: 580px;
+  background: #111a22;
   border: 2px solid var(--val-red);
-  border-radius: 8px;
   position: relative;
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.75), 0 0 30px rgba(255, 70, 85, 0.12);
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.8), 0 0 35px rgba(255, 70, 85, 0.15);
   overflow: hidden;
+  clip-path: polygon(0 0, calc(100% - 18px) 0, 100% 18px, 100% 100%, 18px 100%, 0 calc(100% - 18px));
 }
 
-/* Feature 2: Map Splash Art Banner */
+/* In-Game Header: Map Splash Art Banner */
 .card-map-banner {
-  height: 90px;
+  height: 105px;
   width: 100%;
   position: relative;
   background-size: cover;
@@ -407,12 +557,13 @@
   align-items: flex-end;
   padding: 12px 18px;
   overflow: hidden;
+  border-bottom: 2px solid #233444;
 }
 
 .card-map-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, rgba(15, 25, 35, 0.4) 0%, rgba(17, 27, 36, 0.95) 100%);
+  background: linear-gradient(180deg, rgba(15, 25, 35, 0.3) 0%, rgba(17, 26, 34, 0.95) 100%);
 }
 
 .map-banner-content {
@@ -420,73 +571,77 @@
   z-index: 2;
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-end;
   width: 100%;
 }
 
-.map-name-pill {
-  font-family: var(--font-hud);
-  font-size: 0.85rem;
-  font-weight: 700;
+.in-game-match-tag {
+  font-family: var(--font-display);
+  font-size: 1.8rem;
+  line-height: 1;
+  color: var(--val-red);
   letter-spacing: 2px;
-  color: #fff;
-  text-transform: uppercase;
-  display: flex;
-  align-items: center;
-  gap: 6px;
+  text-shadow: 0 0 12px rgba(255, 70, 85, 0.6);
 }
 
-.region-indicator {
+.map-location-sub {
   font-family: var(--font-hud);
-  font-size: 0.75rem;
-  letter-spacing: 1.5px;
-  color: var(--val-gray);
-  background: rgba(0, 0, 0, 0.5);
-  border: 1px solid #334455;
-  padding: 2px 8px;
-  border-radius: 3px;
+  font-size: 0.8rem;
+  letter-spacing: 2px;
+  color: var(--val-white);
+  text-transform: uppercase;
 }
 
-/* Feature 1: Agent Background Transparent Portrait */
+.vct-protocol-badge {
+  font-family: var(--font-hud);
+  font-size: 0.72rem;
+  letter-spacing: 2px;
+  color: var(--val-gray);
+  background: rgba(0, 0, 0, 0.6);
+  border: 1px solid #334455;
+  padding: 3px 8px;
+}
+
+/* Agent Full Transparent Portrait (Backdrop) */
 .agent-portrait-backdrop {
   position: absolute;
-  top: 60px;
-  right: -30px;
-  height: 380px;
-  opacity: 0.22;
+  top: 70px;
+  right: -25px;
+  height: 420px;
+  opacity: 0.24;
   pointer-events: none;
   z-index: 1;
   mask-image: linear-gradient(to left, rgba(0,0,0,1) 40%, rgba(0,0,0,0) 100%);
   -webkit-mask-image: linear-gradient(to left, rgba(0,0,0,1) 40%, rgba(0,0,0,0) 100%);
 }
 
-/* Feature 4: Hall of Shame Military Stamp */
+/* Hall of Shame Military Stamp */
 .shame-stamp {
   position: absolute;
-  top: 100px;
+  top: 115px;
   right: 18px;
   font-family: var(--font-display);
-  font-size: 1.4rem;
-  letter-spacing: 2px;
+  font-size: 1.5rem;
+  letter-spacing: 2.5px;
   color: var(--val-red);
   border: 2px solid var(--val-red);
-  padding: 4px 10px;
+  padding: 4px 12px;
   text-transform: uppercase;
   transform: rotate(-10deg);
-  opacity: 0.9;
+  opacity: 0.92;
   z-index: 5;
-  background: rgba(255, 70, 85, 0.08);
-  box-shadow: 0 0 10px rgba(255, 70, 85, 0.3);
+  background: rgba(255, 70, 85, 0.1);
+  box-shadow: 0 0 14px rgba(255, 70, 85, 0.35);
 }
 
-/* Card Body Content */
+/* Card Body */
 .card-inner-body {
-  padding: 16px 20px 20px 20px;
+  padding: 16px 22px 22px 22px;
   position: relative;
   z-index: 3;
 }
 
-/* Player Info Row (With Custom PFP + Agent Icon) */
+/* Player Identity Bar */
 .player-info-section {
   display: flex;
   justify-content: space-between;
@@ -499,19 +654,19 @@
 .player-identity-left {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 14px;
 }
 
 .agent-icon-wrapper {
-  width: 52px;
-  height: 52px;
-  border-radius: 50%;
-  background: #0f1923;
+  width: 58px;
+  height: 58px;
   border: 2px solid var(--val-red);
+  background: #0b1117;
   overflow: hidden;
   position: relative;
   flex-shrink: 0;
-  box-shadow: 0 0 12px rgba(255, 70, 85, 0.3);
+  box-shadow: 0 0 14px rgba(255, 70, 85, 0.3);
+  clip-path: polygon(0 0, calc(100% - 8px) 0, 100% 8px, 100% 100%, 8px 100%, 0 calc(100% - 8px));
 }
 
 .agent-avatar-img {
@@ -524,10 +679,9 @@
   position: absolute;
   bottom: 0;
   right: 0;
-  width: 16px;
-  height: 16px;
+  width: 18px;
+  height: 18px;
   background: #000;
-  border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -539,53 +693,42 @@
   filter: brightness(2);
 }
 
-.player-names-col {
-  display: flex;
-  flex-direction: column;
-}
-
 .player-name-text {
   font-family: var(--font-display);
-  font-size: clamp(1.8rem, 5vw, 2.4rem);
+  font-size: clamp(2rem, 5vw, 2.7rem);
   line-height: 1;
   color: #fff;
-  letter-spacing: 1px;
+  letter-spacing: 1.5px;
 }
 
 .agent-name-subtext {
   font-family: var(--font-hud);
-  font-size: 0.85rem;
+  font-size: 0.88rem;
   color: var(--val-cyan);
-  letter-spacing: 1.5px;
+  letter-spacing: 2px;
   text-transform: uppercase;
 }
 
-/* Feature 3: Custom Rank Emblem */
+/* Rank Emblem Badges */
 .rank-emblem-badge {
   display: flex;
   align-items: center;
   gap: 8px;
-  padding: 6px 12px;
-  border-radius: 4px;
+  padding: 6px 14px;
   border: 1px solid;
   font-family: var(--font-hud);
   font-size: 0.95rem;
   font-weight: 700;
   letter-spacing: 1.5px;
   text-transform: uppercase;
-  flex-shrink: 0;
+  clip-path: polygon(0 0, calc(100% - 8px) 0, 100% 8px, 100% 100%, 8px 100%, 0 calc(100% - 8px));
 }
 
-.rank-emblem-icon {
-  font-size: 1.15rem;
-}
-
-/* Feature 6: Animated Tilt-O-Meter / Toxicity Gauge */
+/* Tilt-O-Meter / Toxicity Progress Bar */
 .tilt-meter-container {
-  background: #0c141b;
-  border: 1px solid #1f2d3a;
+  background: #0a1117;
+  border: 1px solid var(--val-border);
   padding: 10px 14px;
-  border-radius: 4px;
   margin-bottom: 16px;
 }
 
@@ -602,9 +745,6 @@
 
 .tilt-label {
   color: var(--val-gray);
-  display: flex;
-  align-items: center;
-  gap: 6px;
 }
 
 .tilt-value {
@@ -613,17 +753,14 @@
 
 .tilt-track {
   width: 100%;
-  height: 8px;
-  background: #18232e;
-  border-radius: 4px;
+  height: 7px;
+  background: #172430;
   overflow: hidden;
-  position: relative;
 }
 
 .tilt-fill {
   height: 100%;
-  transition: width 1s cubic-bezier(0.16, 1, 0.3, 1);
-  border-radius: 4px;
+  transition: width 1s ease;
 }
 
 .tilt-high {
@@ -639,7 +776,7 @@
   background: linear-gradient(90deg, #c084fc, #ff4655);
 }
 
-/* Stats Grid */
+/* In-Game Scoreboard Stats Grid */
 .stats-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -648,10 +785,9 @@
 }
 
 .stat-cell {
-  background: #0d161e;
-  border: 1px solid #23313d;
-  padding: 8px 10px;
-  border-radius: 4px;
+  background: #0c141c;
+  border: 1px solid var(--val-border);
+  padding: 8px 12px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -661,7 +797,7 @@
 .stat-title {
   font-family: var(--font-hud);
   font-size: 0.7rem;
-  letter-spacing: 1.2px;
+  letter-spacing: 1.5px;
   color: var(--val-gray);
   text-transform: uppercase;
   margin-bottom: 2px;
@@ -669,7 +805,7 @@
 
 .stat-number {
   font-family: var(--font-display);
-  font-size: 1.7rem;
+  font-size: 1.9rem;
   line-height: 1;
   color: #fff;
   font-weight: 700;
@@ -679,71 +815,90 @@
   color: var(--val-green);
 }
 
-/* Accuracy breakdown row */
-.accuracy-row {
+/* Visual Segmented Hit Accuracy Bar (Head / Body / Legs) */
+.accuracy-section {
+  background: #090e14;
+  border: 1px solid var(--val-border);
+  padding: 10px 14px;
+  margin-bottom: 16px;
+}
+
+.accuracy-labels-row {
   display: flex;
   justify-content: space-between;
-  background: rgba(0, 0, 0, 0.3);
-  border: 1px solid #1e2c37;
-  padding: 6px 12px;
-  border-radius: 4px;
-  margin-bottom: 16px;
   font-family: var(--font-hud);
   font-size: 0.8rem;
-  color: var(--val-gray);
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  margin-bottom: 6px;
 }
 
-.accuracy-row strong {
-  color: #fff;
+.accuracy-bar-track {
+  width: 100%;
+  height: 8px;
+  background: #172430;
+  display: flex;
+  overflow: hidden;
 }
 
-/* Roast Box */
+.acc-segment-head {
+  background: var(--val-red);
+  height: 100%;
+}
+.acc-segment-body {
+  background: var(--val-gold);
+  height: 100%;
+}
+.acc-segment-legs {
+  background: var(--val-cyan);
+  height: 100%;
+}
+
+/* Kingdom Debrief / Roast Terminal Box */
 .roast-quote-box {
-  background: #090f14;
+  background: #070c10;
   border-left: 4px solid var(--val-red);
-  padding: 14px 16px;
-  border-radius: 0 4px 4px 0;
+  padding: 14px 18px;
   margin-bottom: 16px;
+  position: relative;
 }
 
 .roast-quote-text {
   font-family: var(--font-body);
   font-style: italic;
-  font-size: clamp(0.92rem, 2.2vw, 1rem);
-  line-height: 1.55;
+  font-size: clamp(0.92rem, 2.2vw, 1.02rem);
+  line-height: 1.6;
   color: #f1ede8;
 }
 
-/* Card Bottom Footer */
 .card-bottom-footer {
   display: flex;
   justify-content: space-between;
-  border-top: 1px solid #202d38;
+  border-top: 1px solid #1a2632;
   padding-top: 10px;
   font-family: var(--font-hud);
-  font-size: 0.7rem;
+  font-size: 0.72rem;
   letter-spacing: 1.5px;
   color: var(--val-muted);
 }
 
-/* Action Buttons */
+/* In-Game Post-Match Action Buttons */
 .card-actions {
   display: flex;
-  gap: 10px;
+  gap: 12px;
   flex-wrap: wrap;
   justify-content: center;
   width: 100%;
-  max-width: 540px;
+  max-width: 580px;
 }
 
 .action-btn {
-  flex: 1 1 130px;
-  padding: 12px 16px;
-  border-radius: 4px;
+  flex: 1 1 140px;
+  padding: 12px 18px;
   font-family: var(--font-hud);
   font-size: 0.95rem;
   font-weight: 700;
-  letter-spacing: 1px;
+  letter-spacing: 1.5px;
   border: none;
   cursor: pointer;
   display: flex;
@@ -752,27 +907,28 @@
   gap: 8px;
   text-decoration: none;
   transition: all 0.2s;
+  clip-path: polygon(0 0, calc(100% - 8px) 0, 100% 8px, 100% 100%, 8px 100%, 0 calc(100% - 8px));
 }
 
 .action-btn-download {
   background: var(--val-green);
-  color: #0d171e;
+  color: #0b1117;
 }
 
 .action-btn-download:hover {
-  background: #15ff8e;
+  background: #17ff92;
   transform: translateY(-2px);
-  box-shadow: 0 6px 16px rgba(0, 230, 118, 0.35);
+  box-shadow: 0 6px 20px rgba(0, 230, 118, 0.4);
 }
 
 .action-btn-copy {
-  background: #253644;
+  background: #1f2f3d;
   color: #fff;
   border: 1px solid #3c5163;
 }
 
 .action-btn-copy:hover {
-  background: #314658;
+  background: #2b3f52;
 }
 
 .action-btn-share {
@@ -782,27 +938,24 @@
 }
 
 .action-btn-share:hover {
-  background: #111;
+  background: #161616;
 }
 
-/* ========================================= */
-/* Feature 7: DUO VERSUS COMPARISON CARD     */
-/* ========================================= */
+/* Duo 1v1 Versus Card */
 .duo-card-container {
   width: 100%;
-  max-width: 780px;
-  background: #111b24;
+  max-width: 820px;
+  background: #111a22;
   border: 2px solid var(--val-red);
-  border-radius: 8px;
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.75);
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.8);
   overflow: hidden;
-  position: relative;
+  clip-path: polygon(0 0, calc(100% - 18px) 0, 100% 18px, 100% 100%, 18px 100%, 0 calc(100% - 18px));
 }
 
 .duo-header-banner {
-  background: #0b1218;
-  border-bottom: 2px solid #23313d;
-  padding: 12px 18px;
+  background: #070c10;
+  border-bottom: 2px solid #233444;
+  padding: 12px 20px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -810,7 +963,7 @@
 
 .duo-title-tag {
   font-family: var(--font-hud);
-  font-size: 0.9rem;
+  font-size: 0.95rem;
   font-weight: 700;
   color: var(--val-red);
   letter-spacing: 2px;
@@ -820,30 +973,28 @@
   display: grid;
   grid-template-columns: 1fr auto 1fr;
   align-items: stretch;
-  position: relative;
 }
 
 .duo-column {
-  padding: 18px;
+  padding: 20px;
   display: flex;
   flex-direction: column;
 }
 
 .duo-column-winner {
-  background: rgba(0, 230, 118, 0.04);
+  background: rgba(0, 230, 118, 0.05);
 }
 
 .duo-column-loser {
-  background: rgba(255, 70, 85, 0.04);
+  background: rgba(255, 70, 85, 0.05);
 }
 
 .duo-verdict-banner {
-  padding: 4px 10px;
-  border-radius: 3px;
+  padding: 5px 12px;
   font-family: var(--font-hud);
-  font-size: 0.8rem;
+  font-size: 0.85rem;
   font-weight: 700;
-  letter-spacing: 1.5px;
+  letter-spacing: 2px;
   text-align: center;
   margin-bottom: 12px;
 }
@@ -865,14 +1016,14 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 0 8px;
+  padding: 0 10px;
   border-left: 1px dashed #283946;
   border-right: 1px dashed #283946;
 }
 
 .vs-circle {
-  width: 36px;
-  height: 36px;
+  width: 40px;
+  height: 40px;
   background: var(--val-red);
   color: #fff;
   border-radius: 50%;
@@ -880,30 +1031,29 @@
   align-items: center;
   justify-content: center;
   font-family: var(--font-display);
-  font-size: 1.3rem;
+  font-size: 1.4rem;
   font-weight: 700;
-  box-shadow: 0 0 12px var(--val-red-glow);
+  box-shadow: 0 0 16px var(--val-red-glow);
 }
 
 .duo-roast-summary {
-  background: #090f14;
-  border-top: 2px solid #23313d;
-  padding: 16px 20px;
+  background: #070c10;
+  border-top: 2px solid #233444;
+  padding: 18px 24px;
   text-align: center;
 }
 
-/* Toast */
+/* Toast Notice */
 .toast-notice {
   position: fixed;
   bottom: 24px;
   background: var(--val-green);
-  color: #0b1218;
+  color: #0b1117;
   font-family: var(--font-hud);
   font-weight: 700;
   font-size: 0.95rem;
-  letter-spacing: 1px;
-  padding: 10px 22px;
-  border-radius: 4px;
+  letter-spacing: 1.5px;
+  padding: 10px 24px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
   animation: slideUpFade 0.3s ease;
   z-index: 1000;
@@ -925,8 +1075,17 @@
   text-decoration: none;
 }
 
-/* Responsive Overrides */
-@media (max-width: 650px) {
+/* Mobile Responsive */
+@media (max-width: 700px) {
+  .val-top-nav {
+    flex-direction: column;
+    gap: 8px;
+    align-items: flex-start;
+  }
+  .val-nav-right {
+    width: 100%;
+    justify-content: space-between;
+  }
   .search-form {
     flex-direction: column;
   }

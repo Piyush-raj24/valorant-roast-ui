@@ -4,11 +4,14 @@
 
 [![React](https://img.shields.io/badge/React-19.x-61DAFB?style=for-the-badge&logo=react&logoColor=black)](https://react.dev/)
 [![Vite](https://img.shields.io/badge/Vite-8.x-646CFF?style=for-the-badge&logo=vite&logoColor=white)](https://vitejs.dev/)
+[![Backend API](https://img.shields.io/badge/Backend-valorant--roast--api-6DB33F?style=for-the-badge&logo=springboot&logoColor=white)](https://github.com/Piyush-raj24/valorant-roast-api)
 [![Valorant API](https://img.shields.io/badge/Valorant--API-Official%20Assets-FF4655?style=for-the-badge)](https://valorant-api.com/)
 [![Web Audio API](https://img.shields.io/badge/Web%20Audio-Native%20SFX-00F0FF?style=for-the-badge)](https://developer.mozilla.org/en-US/docs/Web/API/Web_Audio_API)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge)](https://opensource.org/licenses/MIT)
 
 **A high-fidelity, mobile-responsive cyberpunk React web application that queries live Valorant player stats and renders broadcast-grade, savage performance review cards with official agent artwork, map splashes, and sound effects.**
+
+> 🛡️ **Looking for the backend service?** Check out the Spring Boot API at [Piyush-raj24/valorant-roast-api](https://github.com/Piyush-raj24/valorant-roast-api).
 
 [Live Features](#-features) • [Quick Start](#-quick-start) • [Environment Variables](#-configuration) • [Deployment](#-deployment-to-vercel--render)
 
@@ -84,6 +87,12 @@ npm run preview
 2. Framework: **Vite**.
 3. Environment Variable: `VITE_API_URL` = `https://<your-backend-api>.onrender.com`.
 4. Click **Deploy**.
+
+---
+
+## 🔗 Related Repositories
+
+* **Backend Service**: [Piyush-raj24/valorant-roast-api](https://github.com/Piyush-raj24/valorant-roast-api) — Spring Boot 3 + Java 21 REST API connecting to HenrikDev v4.
 
 ---
 
