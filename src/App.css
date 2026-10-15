@@ -406,55 +406,7 @@
   box-shadow: 0 4px 14px rgba(255, 70, 85, 0.4);
 }
 
-.avatar-upload-area {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
 
-.upload-pfp-btn {
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px dashed var(--val-border-bright);
-  color: var(--val-white);
-  padding: 5px 12px;
-  font-family: var(--font-hud);
-  font-size: 0.82rem;
-  letter-spacing: 1px;
-  cursor: pointer;
-  transition: all 0.2s;
-}
-
-.upload-pfp-btn:hover {
-  border-color: var(--val-cyan);
-  color: var(--val-cyan);
-}
-
-.avatar-preview-badge {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  background: rgba(0, 240, 255, 0.1);
-  border: 1px solid var(--val-cyan);
-  padding: 3px 10px 3px 6px;
-  font-size: 0.78rem;
-  color: var(--val-cyan);
-  font-family: var(--font-hud);
-}
-
-.avatar-thumb {
-  width: 22px;
-  height: 22px;
-  border-radius: 50%;
-  object-fit: cover;
-}
-
-.remove-pfp-btn {
-  background: none;
-  border: none;
-  color: var(--val-red);
-  cursor: pointer;
-  font-weight: bold;
-}
 
 /* Cold Start & Error Banners */
 .cold-start-banner {
@@ -1105,11 +1057,7 @@
     text-align: center;
     padding: 8px 10px;
   }
-  .upload-pfp-btn {
-    width: 100%;
-    justify-content: center;
-    padding: 8px 12px;
-  }
+
   .duo-inputs {
     grid-template-columns: 1fr;
     gap: 10px;

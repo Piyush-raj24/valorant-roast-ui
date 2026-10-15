@@ -31,11 +31,9 @@ export default function App() {
   const [error, setError] = useState('');
   const [coldStartNotice, setColdStartNotice] = useState(false);
   const [copiedToast, setCopiedToast] = useState(false);
-  const [customAvatar, setCustomAvatar] = useState(null);
 
   const cardRef = useRef(null);
   const duoCardRef = useRef(null);
-  const fileInputRef = useRef(null);
   const coldStartTimerRef = useRef(null);
 
   useEffect(() => {
@@ -158,17 +156,6 @@ export default function App() {
       const form = document.getElementById('solo-form');
       if (form) form.requestSubmit();
     }, 50);
-  };
-
-  const handleAvatarFile = (e) => {
-    const file = e.target.files && e.target.files[0];
-    if (!file) return;
-    const reader = new FileReader();
-    reader.onload = (event) => {
-      setCustomAvatar(event.target.result);
-      sound.playClick();
-    };
-    reader.readAsDataURL(file);
   };
 
   const handleDownloadCard = async (targetRef, filename) => {
@@ -401,7 +388,7 @@ export default function App() {
             </form>
           )}
 
-          {/* Tools: ONLY TenZ Preset + Custom Avatar Upload */}
+          {/* Presets */}
           <div className="form-footer-tools">
             <div className="presets-container">
               <span className="presets-label">Preset:</span>
@@ -412,39 +399,6 @@ export default function App() {
               >
                 {TENZ_PRESET.label}
               </button>
-            </div>
-
-            {/* Custom Avatar Upload */}
-            <div className="avatar-upload-area">
-              <input
-                type="file"
-                ref={fileInputRef}
-                accept="image/*"
-                style={{ display: 'none' }}
-                onChange={handleAvatarFile}
-              />
-              {customAvatar ? (
-                <div className="avatar-preview-badge">
-                  <img src={customAvatar} alt="Custom Avatar" className="avatar-thumb" />
-                  <span>Custom Card</span>
-                  <button
-                    type="button"
-                    className="remove-pfp-btn"
-                    onClick={() => { sound.playClick(); setCustomAvatar(null); }}
-                    title="Remove avatar"
-                  >
-                    ✕
-                  </button>
-                </div>
-              ) : (
-                <button
-                  type="button"
-                  className="upload-pfp-btn"
-                  onClick={() => { sound.playClick(); fileInputRef.current.click(); }}
-                >
-                  📷 Upload PFP / Meme
-                </button>
-              )}
             </div>
           </div>
 
@@ -528,9 +482,7 @@ export default function App() {
                 <div className="player-info-section">
                   <div className="player-identity-left">
                     <div className="agent-icon-wrapper">
-                      {customAvatar ? (
-                        <img src={customAvatar} alt="Custom PFP" className="agent-avatar-img" />
-                      ) : (() => {
+                      {(() => {
                         const agentAsset = getAgentAsset(stats.agent);
                         return agentAsset && agentAsset.icon ? (
                           <img
