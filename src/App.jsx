@@ -256,26 +256,11 @@ export default function App() {
 
   return (
     <>
-      {/* In-Game Top Navigation Bar */}
+      {/* Top Navigation Bar */}
       <nav className="val-top-nav">
         <div className="val-nav-left">
           <div className="val-riot-logo">
-            <div className="val-riot-symbol">V</div>
-            <span>VALORANT ROAST</span>
-          </div>
-          <div className="val-nav-links">
-            <button
-              className={`val-nav-link ${mode === 'solo' ? 'active' : ''}`}
-              onClick={() => { sound.playClick(); setMode('solo'); setError(''); }}
-            >
-              CAREER // ROAST
-            </button>
-            <button
-              className={`val-nav-link ${mode === 'duo' ? 'active' : ''}`}
-              onClick={() => { sound.playClick(); setMode('duo'); setError(''); }}
-            >
-              VERSUS 1v1
-            </button>
+            <span>VALORANT ROAST CARD</span>
           </div>
         </div>
 
