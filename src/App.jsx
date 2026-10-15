@@ -261,7 +261,7 @@ export default function App() {
         <div className="val-nav-left">
           <div className="val-riot-logo">
             <div className="val-riot-symbol">V</div>
-            <span>VALORANT</span>
+            <span>VALORANT ROAST</span>
           </div>
           <div className="val-nav-links">
             <button
@@ -280,14 +280,6 @@ export default function App() {
         </div>
 
         <div className="val-nav-right">
-          <div className="val-currency-counter">
-            <div className="val-currency-item">
-              <span>⯁</span> 1,600 VP
-            </div>
-            <div className="val-currency-item">
-              <span style={{ color: '#00f0ff' }}>⯁</span> 240 RP
-            </div>
-          </div>
           <div className="val-ping-badge">
             ● 18ms
           </div>
@@ -309,7 +301,7 @@ export default function App() {
             MATCH <span>ROAST</span>
           </h1>
           <p className="main-subtitle">
-            OFFICIAL EVALUATION ENGINE // ENTER RIOT ID TO INITIATE SAVAGE PERFORMANCE DEBRIEF
+            COMMUNITY ROAST ENGINE // ENTER RIOT ID TO INITIATE SAVAGE PERFORMANCE DEBRIEF
           </p>
         </header>
 
@@ -494,7 +486,7 @@ export default function App() {
         {mode === 'solo' && stats && (
           <div className="card-wrapper">
             <div ref={cardRef} className="roast-card">
-              {/* Official Map Splash Art Banner */}
+              {/* Map Splash Art Banner */}
               {(() => {
                 const mapAsset = getMapAsset(stats.map);
                 const mapBg = mapAsset && mapAsset.splash
@@ -807,7 +799,7 @@ export default function App() {
               {/* Duo Roast Verdict */}
               <div className="duo-roast-summary">
                 <div style={{ fontFamily: 'var(--font-hud)', fontSize: '0.72rem', color: 'var(--val-red)', letterSpacing: '2px', marginBottom: '6px' }}>
-                  // OFFICIAL VCT 1v1 DEBRIEF
+                  // VCT 1v1 DEBRIEF
                 </div>
                 <p className="roast-quote-text">"{duoStats.roast}"</p>
               </div>

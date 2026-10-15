@@ -5,11 +5,11 @@
 [![React](https://img.shields.io/badge/React-19.x-61DAFB?style=for-the-badge&logo=react&logoColor=black)](https://react.dev/)
 [![Vite](https://img.shields.io/badge/Vite-8.x-646CFF?style=for-the-badge&logo=vite&logoColor=white)](https://vitejs.dev/)
 [![Backend API](https://img.shields.io/badge/Backend-valorant--roast--api-6DB33F?style=for-the-badge&logo=springboot&logoColor=white)](https://github.com/Piyush-raj24/valorant-roast-api)
-[![Valorant API](https://img.shields.io/badge/Valorant--API-Official%20Assets-FF4655?style=for-the-badge)](https://valorant-api.com/)
+[![Valorant API](https://img.shields.io/badge/Valorant--API-Game%20Assets-FF4655?style=for-the-badge)](https://valorant-api.com/)
 [![Web Audio API](https://img.shields.io/badge/Web%20Audio-Native%20SFX-00F0FF?style=for-the-badge)](https://developer.mozilla.org/en-US/docs/Web/API/Web_Audio_API)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge)](https://opensource.org/licenses/MIT)
 
-**A high-fidelity, mobile-responsive cyberpunk React web application that queries live Valorant player stats and renders broadcast-grade, savage performance review cards with official agent artwork, map splashes, and sound effects.**
+**A high-fidelity, mobile-responsive cyberpunk React web application that queries live Valorant player stats and renders broadcast-grade, savage performance review cards with high-res agent artwork, map splashes, and sound effects.**
 
 > 🛡️ **Looking for the backend service?** Check out the Spring Boot API at [Piyush-raj24/valorant-roast-api](https://github.com/Piyush-raj24/valorant-roast-api).
 
@@ -21,7 +21,7 @@
 
 ## 🎮 Features
 
-1. **Official High-Res Agent Portraits & Avatars**: Dynamically renders full-body transparent agent portraits, circular profile avatars, and tactical role badges (Duelist, Controller, Initiator, Sentinel) powered by official Valorant API assets.
+1. **High-Res Agent Portraits & Avatars**: Dynamically renders full-body transparent agent portraits, circular profile avatars, and tactical role badges (Duelist, Controller, Initiator, Sentinel) powered by public Valorant API assets.
 2. **Cinematic Map Splash Art Banners**: Displays widescreen HD map backdrops (Ascent, Bind, Haven, Split, Sunset, Lotus, Abyss, etc.) with minimap indicators.
 3. **Custom Rank Emblems & Meme Tiers**: Visual badges ranging from 👑 *Radiant Menace* and 🟣 *Certified Smurf* down to 🥪 *Average Andy*, 📦 *Cardboard 2*, and 🪣 *Plastic 1*.
 4. **"Hall of Shame" Military Stamps**: Dynamic tactical stamps applied across cards based on performance:
