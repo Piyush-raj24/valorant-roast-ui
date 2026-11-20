@@ -1,4 +1,4 @@
-# ⚡ VALORANT ROAST UI
+# VALORANT ROAST CARD
 
 <div align="center">
 
@@ -11,34 +11,33 @@
 
 **A high-fidelity, mobile-responsive cyberpunk React web application that queries live Valorant player stats and renders broadcast-grade, savage performance review cards with high-res agent artwork, map splashes, and sound effects.**
 
-> 🛡️ **Looking for the backend service?** Check out the Spring Boot API at [Piyush-raj24/valorant-roast-api](https://github.com/Piyush-raj24/valorant-roast-api).
+> **Looking for the backend service?** Check out the Spring Boot API at [Piyush-raj24/valorant-roast-api](https://github.com/Piyush-raj24/valorant-roast-api).
 
-[Live Features](#-features) • [Quick Start](#-quick-start) • [Environment Variables](#-configuration) • [Deployment](#-deployment-to-vercel--render)
+[Features](#features) • [Quick Start](#quick-start) • [Configuration](#configuration) • [Deployment](#deployment)
 
 </div>
 
 ---
 
-## 🎮 Features
+## Features
 
 1. **High-Res Agent Portraits & Avatars**: Dynamically renders full-body transparent agent portraits, circular profile avatars, and tactical role badges (Duelist, Controller, Initiator, Sentinel) powered by public Valorant API assets.
 2. **Cinematic Map Splash Art Banners**: Displays widescreen HD map backdrops (Ascent, Bind, Haven, Split, Sunset, Lotus, Abyss, etc.) with minimap indicators.
-3. **Custom Rank Emblems & Meme Tiers**: Visual badges ranging from 👑 *Radiant Menace* and 🟣 *Certified Smurf* down to 🥪 *Average Andy*, 📦 *Cardboard 2*, and 🪣 *Plastic 1*.
+3. **Custom Rank Emblems & Meme Tiers**: Visual badges ranging from *Radiant Menace* and *Certified Smurf* down to *Average Andy*, *Cardboard 2*, and *Plastic 1*.
 4. **"Hall of Shame" Military Stamps**: Dynamic tactical stamps applied across cards based on performance:
-   - `[ 🚿 TOUCH GRASS ]` *(KD ≥ 2.2)*
-   - `[ ⚠️ FAILED ENTRY ]` *(Duelist with negative KD)*
-   - `[ 🦿 AIMING AT TOES ]` *(Headshot rate < 12%)*
-   - `[ 🤖 NPC SPECTATOR ]` *(KD < 0.45)*
-5. **Custom PFP / Meme Upload**: Upload your own Discord avatar or gaming meme to display directly on the performance review card.
-6. **Animated "Tilt-O-Meter" / Toxicity Gauge**: Real-time visual progress bar showing calculated tilt factor and risk of Alt+F4.
-7. **Duo Versus Mode**: Compare two friends head-to-head to determine who carried and who sold the match, producing a comparative Duo Roast card.
-8. **Native Web Audio SFX**: Synthesized tactical button clicks, vandal headshot "dinks", and cinematic sub-bass reveal stingers with an audio toggle.
-9. **Sharable Performance Card Generator**: Powered by `html2canvas` with 2x retina scaling for Discord, Twitter/X, and Instagram stories.
-10. **100% Mobile Responsive**: Fluid clamp typography and flex layouts fitting screens from 320px smartphones to 4K displays.
+   - `[ TOUCH GRASS ]` *(KD ≥ 2.2)*
+   - `[ FAILED ENTRY ]` *(Duelist with negative KD)*
+   - `[ AIMING AT TOES ]` *(Headshot rate < 12%)*
+   - `[ NPC SPECTATOR ]` *(KD < 0.45)*
+5. **Animated "Tilt-O-Meter" / Toxicity Gauge**: Real-time visual progress bar showing calculated tilt factor and risk of Alt+F4.
+6. **Duo Versus Mode**: Compare two friends head-to-head to determine who carried and who sold the match, producing a comparative Duo Roast card.
+7. **Native Web Audio SFX**: Synthesized tactical button clicks, vandal headshot "dinks", and cinematic sub-bass reveal stingers with an audio toggle.
+8. **Sharable Performance Card Generator**: Powered by `html2canvas` with 2x retina scaling for Discord, Twitter/X, and Instagram stories.
+9. **100% Mobile Responsive**: Fluid clamp typography and flex layouts fitting screens from 320px smartphones to 4K displays.
 
 ---
 
-## 💻 Quick Start
+## Quick Start
 
 ### Prerequisites
 - **Node.js** (v18 or higher recommended)
@@ -61,7 +60,7 @@ Visit `http://localhost:5173` in your browser.
 
 ---
 
-## ⚙️ Configuration
+## Configuration
 
 Create a `.env` file in the root directory:
 ```env
@@ -71,7 +70,7 @@ VITE_API_URL=http://localhost:8080
 
 ---
 
-## 🛠️ Production Build
+## Production Build
 
 ```bash
 npm run build
@@ -80,7 +79,7 @@ npm run preview
 
 ---
 
-## ☁️ Deployment
+## Deployment
 
 ### Deploy to Vercel (Recommended)
 1. Import `Piyush-raj24/valorant-roast-ui` into [Vercel](https://vercel.com/).
@@ -90,12 +89,12 @@ npm run preview
 
 ---
 
-## 🔗 Related Repositories
+## Related Repositories
 
 * **Backend Service**: [Piyush-raj24/valorant-roast-api](https://github.com/Piyush-raj24/valorant-roast-api) — Spring Boot 3 + Java 21 REST API connecting to HenrikDev v4.
 
 ---
 
-## 📄 License
+## License
 
 This project is licensed under the [MIT License](LICENSE) - Copyright (c) 2026 **Piyush Raj**.
